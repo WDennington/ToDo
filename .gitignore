@@ -3,9 +3,13 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# VSCode
+node_modules/
+.vscode/
+
 # C extensions
 *.so
-
+vscode
 # Distribution / packaging
 .Python
 build/
