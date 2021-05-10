@@ -2,21 +2,22 @@
 {% block body %}
 
 <h2>Incompleted Tasks<h2>
-
+<p>
 {% for task in all_tasks %}
     {% if task.completed == False %}
         {{ task.description }}
         {{ task.date_created }}
+        <br>
     {% endif %}
 {% endfor %}
-
+</p>
 <h2>Complete Tasks</h2>
-
+<p>
 {% for task in all_tasks %}
     {% if task.completed == True %}
         {{ task.description }}
         {{ task.date_created }}
     {% endif %}
 {% endfor %}
-
+</p>
 {% endblock body %}
