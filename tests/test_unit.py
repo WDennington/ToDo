@@ -27,30 +27,30 @@ class TestBase(TestCase):
                     rated = True
                 )
         db.session.add(test_monopoly)
-        test_farming = Games(
-                    game_name='Farming Simulator', 
-                    age_rating=3,
-                    genre='Simulation',
-                    description='Pretend to be a farmer',
-                    rated = True
-                )
-        db.session.add(test_farming)
-        test_doom = Games(
-                    game_name='Doom', 
-                    age_rating=18,
-                    genre='First person shooter',
-                    description='Shoot all the demons',
-                    rated = False
-                )
-        db.session.add(test_doom)
-        test_warhammer = Games(
-                    game_name='Total War:Warhammer 2',
-                    age_rating=18,
-                    genre='Strategy',
-                    description='Better than the tabletop version',
-                    rated=False
-        )
-        db.session.add(test_warhammer)
+        # test_farming = Games(
+        #             game_name='Farming Simulator', 
+        #             age_rating=3,
+        #             genre='Simulation',
+        #             description='Pretend to be a farmer',
+        #             rated = True
+        #         )
+        # db.session.add(test_farming)
+        # test_doom = Games(
+        #             game_name='Doom', 
+        #             age_rating=18,
+        #             genre='First person shooter',
+        #             description='Shoot all the demons',
+        #             rated = False
+        #         )
+        # db.session.add(test_doom)
+        # test_warhammer = Games(
+        #             game_name='Total War:Warhammer 2',
+        #             age_rating=18,
+        #             genre='Strategy',
+        #             description='Better than the tabletop version',
+        #             rated=False
+        # )
+        # db.session.add(test_warhammer)
         db.session.commit()
 
     def tearDown(self):
@@ -67,22 +67,45 @@ class TestViews(TestBase):
         self.assertEqual(response.status_code, 200)
 
     def test_add_game_get(self):
-        response = self.client.get(url_for('add_game'))
+        response = self.client.get(url_for('add_game'), follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
     def test_update_get(self):
-        response = self.client.get(url_for('update'))
+        response = self.client.get(url_for('update'), follow_redirects=True)
         self.assertEqual(response.status_code, 200)
     
     def test_add_rating_get(self):
-        response = self.client.get(url_for('add_rating'))
+        response = self.client.get(url_for('add_rating'), follow_redirects=True)
         self.assertEqual(response.status_code, 200)
     
     def test_delete_game_get(self):
-        response = self.client.get(url_for('delete_game', id=1))
+        response = self.client.get(url_for('delete_game', game_id=1), follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
 class TestRead(TestBase):
-    def test_read_tasks(self):
-        response = self.client.get(url_for("home"))
-        self.assertIn(b'Monopoly')
+    def test_read_games(self):
+        response = self.client.get(url_for('home'))
+        self.assertIn(b'Monopoly', response.data)
+
+class TestCreate(TestBase):
+    def test_create_games(self):
+        response = self.client.post(url_for('add_game'),
+            data=dict(game_name='test game',),
+            follow_redirects=True
+        )
+        self.assertIn(b'test game', response.data)
+
+class TestUpdate(TestBase):
+    def test_update_games(self):
+        response = self.client.post(url_for('update'),
+            data=dict(game_name='game updated'),
+            follow_redirects=True
+        )
+        self.assertIn(b'game updated', response.data)
+
+class TestDelete(TestBase):
+    def test_delete_game(self):
+        response = self.client.get(url_for('delete_game', game_id=1),
+            follow_redirects=True
+        )
+        self.assertNotIn(b'Monopoly', response.data)
