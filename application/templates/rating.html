@@ -4,9 +4,7 @@
 <form action='' method='POST'>
     {{ form.hidden_tag() }}
     {{ form.game_name.label }} {{ form.game_name }} <br>
-    {{ form.age_rating.label }} {{ form.age_rating }} <br>
-    {{ form.genre.label }} {{ form.genre }} <br>
-    {{ form.description.label }} {{ form.description }} <br>
+    {{ form.rating.label }} {{ form.rating }} <br>    
     {{ form.submit }}
 </form>
 {% endblock body %}

@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
 {% block body %}
 <br><br>
+Original Game Info: {{ update.game_name }}
 <form action='' method='POST'>
     {{ form.hidden_tag() }}
     {{ form.game_name.label }} {{ form.game_name }} <br>

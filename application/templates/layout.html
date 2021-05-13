@@ -1,11 +1,18 @@
 <html>
     <head>
-        <title>To Do List - {{ title }}</title>
+        <title>Games Rating App - {{ title }}</title>
     </head>
     <body>
-        <h1>To Do List - {{ title }}</h1>
+        <h1>Games Rating App - {{ title }}</h1>
         <a href="{{ url_for('home') }}">Home </a>
-        <a href="{{ url_for('create') }}">Create </a>
+        <br>
+        <a href="{{ url_for('add_game') }}">Add Game </a>
+        <br>
+        <a href="{{ url_for('add_rating') }}">Add Rating </a>
+        <br>
+        <a href="{{ url_for('delete_game') }}">Delete Game </a>
+        <br>
+        <a href="{{ url_for('update') }}">Update Game Info </a>
         {% block body %}
         {% endblock body %}
     </body>

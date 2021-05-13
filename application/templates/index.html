@@ -1,23 +1,30 @@
 {% extends 'layout.html' %}
 {% block body %}
 
-<h2>Incompleted Tasks<h2>
+<h2>Unrated Games</h2>
 <p>
-{% for task in all_tasks %}
-    {% if task.completed == False %}
-        {{ task.description }}
-        {{ task.date_created }}
+{% for game in all_games %}
+    {% if game.rated == False %}
+        Name:{{ game.game_name }}<br>
+        Genre:{{ game.genre}}<br>
+        {{ game.description}}<br>
+        Age Rating:{{ game.age_rating}}+<br>
+                     
         <br>
     {% endif %}
 {% endfor %}
 </p>
-<h2>Complete Tasks</h2>
+<h2>Rated Games</h2>
 <p>
-{% for task in all_tasks %}
-    {% if task.completed == True %}
-        {{ task.description }}
-        {{ task.date_created }}
+{% for game in all_games %}
+    {% if game.rated == True %}
+         Name:{{ game.game_name }}<br>
+        Genre:{{ game.genre}}<br>
+        {{ game.description}}<br>
+        Age Rating:{{ game.age_rating}}+<br>    
+        <br>
     {% endif %}
 {% endfor %}
+
 </p>
 {% endblock body %}

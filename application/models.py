@@ -1,16 +1,15 @@
 from application import db
-from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, BooleanField
-from datetime import datetime
 
-class Tasks(db.Model):  
-    id = db.Column(db.Integer, primary_key=True)
-    description = db.Column(db.String(1000), nullable=False)
-    completed = db.Column(db.Boolean, nullable=False, default=False)
-    date_created = db.Column(db.DateTime,nullable=False, default=datetime.utcnow)
+class Games(db.Model):  
+    game_id = db.Column(db.Integer, primary_key=True)
+    game_name = db.Column(db.String(80), nullable=False)
+    age_rating = db.Column(db.Integer, nullable=False)
+    genre = db.Column(db.String(40))
+    description = db.Column(db.String(200))
+    rated = db.Column(db.Boolean, nullable=False, default=False)
+    ratings = db.relationship('GameRatings', backref='game')
 
-
-class TaskEntry(FlaskForm):
-    task_name = StringField("Task Name:")
-    task_description = StringField("Short Task Description")
-    task_complete = BooleanField() 
+class GameRatings(db.Model):
+    rating_id = db.Column(db.Integer, primary_key=True)
+    rating = db.Column(db.Integer, nullable=False)
+    game_id = db.Column(db.Integer, db.ForeignKey('games.game_id'), nullable=False)

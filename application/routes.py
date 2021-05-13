@@ -1,62 +1,76 @@
 from flask import Flask, render_template, request, redirect, url_for
-from application.forms import TaskForm
+from application.forms import AddGame, AddRating, DeleteGame
 from application import app, db
-from application.models import Tasks
+from application.models import GameRatings, Games
 
 
 @app.route('/')
 @app.route('/home')
 def home():
-    all_tasks = Tasks.query.all()
+    all_games = Games.query.all()
     output = ''
-    return render_template("index.html", title="Home", all_tasks=all_tasks)
-    #return render_template('layout.html')
+    return render_template("index.html", title="Home", all_games=all_games)
+    
 
-@app.route('/create', methods=["GET","POST"])
-def create():
-    form = TaskForm()
+@app.route('/add_game', methods=["GET","POST"])
+def add_game():
+    form = AddGame()
     if request.method == "POST":
         if form.validate_on_submit():
-            new_task = Tasks(description=form.description.data)
-            db.session.add(new_task)
+                new_game = Games(
+                    game_name=form.game_name.data, 
+                    age_rating=form.age_rating.data,
+                    genre=form.genre.data,
+                    description=form.description.data
+                )           
+                db.session.add(new_game)
+                db.session.commit()
+                return redirect(url_for("home"))
+
+    return render_template("add.html", title="Add a Game", form=form)
+
+@app.route('/update', methods=["GET", "POST"])
+def update():
+    form = AddGame()
+    update = Games.query.filter_by(game_name=form.game_name.data).first()
+    if form.validate_on_submit():
+        update.game_name = form.game_name.data
+        update.age_rating = form.age_rating.data
+        update.genre = form.genre.data
+        update.description = form.description.data
+        db.session.commit()
+        return redirect(url_for('home'))
+    return render_template('update.html', title = 'Update Game Info', form=form, update=update)
+
+
+@app.route('/add_rating', methods=["GET","POST"])
+def add_rating():
+    form = AddRating()
+    if request.method == "POST":
+        if form.validate_on_submit():
+            game = Games.query.filter_by(game_name=form.game_name.data).first()
+            new_rating = GameRatings(rating=form.rating.data)
+            new_rating.game = game
+
+            db.session.add(new_rating)
             db.session.commit()
+            if GameRatings(rating=form.rating.data) is not None:
+                rated = Games.query.filter_by(game_name=form.game_name.data).first()
+                rated.rated = True
+                db.session.add(rated)
+                db.session.commit()
             return redirect(url_for("home"))
 
-    return render_template("add.html", title="Create a Task", form=form)
+    return render_template("rating.html", title="Add a Rating", form=form)
 
-@app.route("/complete/<int:id>")
-def complete(id):
-        task = Tasks.query.filter_by(id=id).first()
-        task.completed = True
-        db.session.commit()
-        return redirect(url_for("create"))
-
-@app.route("/incomplete/<int:id>")
-def incomplete(id):
-        task = Tasks.query.filter_by(id=id).first()
-        task.completed = False
-        db.session.commit()
-        return f"Task {id} is now incomplete"
-
-@app.route('/read')
-def read():
-    all_tasks = Tasks.query.all()
-    task_string = ''
-    for item in all_tasks:
-        task_string += "<br>"+ item.description
-    return task_string
-
-@app.route('/update/<name>')
-def update(name):
-    first_task = Tasks.query.first()
-    first_task.description = name
-    db.session.commit()
-    return first_task.description
-
-@app.route('/delete')
-def delete():
-    task_to_delete = Tasks.query.first()
-    db.session.delete(task_to_delete)
-    db.session.commit()
-    return render_template('delete.html')
+@app.route('/delete_game', methods=["DELETE", "GET"])
+def delete_game():
+    form = DeleteGame()
+    if request.method == "DELETE":
+        if form.validate_on_submit():
+            game_to_delete = Games.query.filter_by(game_name=form.game_name.data).first()
+            db.session.delete(game_to_delete)
+            db.session.commit()
+        return redirect(url_for("home"))
+    return render_template('delete.html', title="Delete a game", form=form)
 

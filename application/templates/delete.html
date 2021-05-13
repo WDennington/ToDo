@@ -1,0 +1,8 @@
+{% extends 'layout.html' %}
+{% block body %}
+<br><br>
+<form action='' method='DELETE'>
+    {{ form.game_to_delete.label }} {{ form.game_to_delete }} <br>
+    {{ form.submit }}
+</form>
+{% endblock body %}
