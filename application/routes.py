@@ -8,8 +8,9 @@ from application.models import GameRatings, Games
 @app.route('/home')
 def home():
     all_games = Games.query.all()
+    all_ratings = GameRatings.query.all()
     output = ''
-    return render_template("index.html", title="Home", all_games=all_games)
+    return render_template("index.html", title="Home", all_games=all_games, all_ratings=all_ratings)
     
 
 @app.route('/add_game', methods=["GET","POST"])
@@ -63,14 +64,10 @@ def add_rating():
 
     return render_template("rating.html", title="Add a Rating", form=form)
 
-@app.route('/delete_game', methods=["DELETE", "GET"])
-def delete_game():
-    form = DeleteGame()
-    if request.method == "DELETE":
-        if form.validate_on_submit():
-            game_to_delete = Games.query.filter_by(game_name=form.game_name.data).first()
-            db.session.delete(game_to_delete)
-            db.session.commit()
-        return redirect(url_for("home"))
-    return render_template('delete.html', title="Delete a game", form=form)
-
+@app.route('/delete_game/<int:game_id>', methods=["POST", "GET"])
+def delete_game(game_id):
+    delete = Games.query.filter_by(game_id=game_id).first()
+    db.session.delete(delete)
+    db.session.commit()
+    return redirect(url_for("home"))
+    
