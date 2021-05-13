@@ -21,6 +21,3 @@ class AddGame(FlaskForm):
     description = StringField('Short description of the game')
     submit = SubmitField('Add/Update Game')   
 
-class DeleteGame(FlaskForm):
-    game_to_delete = StringField('Game name')
-    submit = SubmitField('Delete Game')

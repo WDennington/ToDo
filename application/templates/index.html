@@ -28,7 +28,12 @@
         Age Rating:{{ game.age_rating}}+<br>
         {% for rating in all_ratings %}
             Rating:{{ rating.rating }}/10
+
+        
         {% endfor %}
+        <form action="{{ url_for('delete_game', game_id=game.game_id) }}">
+            <input type=submit value="Delete">
+        </form>
         <br>
     {% endif %}
 {% endfor %}

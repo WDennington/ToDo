@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from application.forms import AddGame, AddRating, DeleteGame
+from application.forms import AddGame, AddRating
 from application import app, db
 from application.models import GameRatings, Games
 
@@ -56,9 +56,9 @@ def add_rating():
             db.session.add(new_rating)
             db.session.commit()
             if GameRatings(rating=form.rating.data) is not None:
-                rated = Games.query.filter_by(game_name=form.game_name.data).first()
-                rated.rated = True
-                db.session.add(rated)
+                rated1 = Games.query.filter_by(game_name=form.game_name.data).first()
+                rated1.rated = True
+                #db.session.add(rated1)
                 db.session.commit()
             return redirect(url_for("home"))
 
