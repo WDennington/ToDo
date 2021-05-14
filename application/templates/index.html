@@ -10,6 +10,10 @@
         {{ game.description}}<br>
         Age Rating:{{ game.age_rating}}+<br>
 
+        <form action="{{ url_for('update', game_id=game.game_id) }}">
+            <input type=submit value="Update">
+        </form>
+
         <form action="{{ url_for('delete_game', game_id=game.game_id) }}">
             <input type=submit value="Delete">
         </form>
@@ -28,6 +32,10 @@
         Age Rating:{{ game.age_rating}}+<br>
         {% for rating in all_ratings %}
             Rating:{{ rating.rating }}/10
+
+        <form action="{{ url_for('update', game_id=game.game_id) }}">
+            <input type=submit value="Update">
+        </form>
 
         
         {% endfor %}

@@ -30,10 +30,10 @@ def add_game():
 
     return render_template("add.html", title="Add a Game", form=form)
 
-@app.route('/update', methods=["GET", "POST"])
-def update():
+@app.route('/update/<int:game_id>', methods=["GET", "POST"])
+def update(game_id):
     form = AddGame()
-    update = Games.query.filter_by(game_name=form.game_name.data).first()
+    update = Games.query.get(game_id)
     if form.validate_on_submit():
         update.game_name = form.game_name.data
         update.age_rating = form.age_rating.data
@@ -41,6 +41,7 @@ def update():
         update.description = form.description.data
         db.session.commit()
         return redirect(url_for('home'))
+    
     return render_template('update.html', title = 'Update Game Info', form=form, update=update)
 
 
@@ -58,7 +59,6 @@ def add_rating():
             if GameRatings(rating=form.rating.data) is not None:
                 rated1 = Games.query.filter_by(game_name=form.game_name.data).first()
                 rated1.rated = True
-                #db.session.add(rated1)
                 db.session.commit()
             return redirect(url_for("home"))
 

@@ -71,7 +71,7 @@ class TestViews(TestBase):
         self.assertEqual(response.status_code, 200)
 
     def test_update_get(self):
-        response = self.client.get(url_for('update'), follow_redirects=True)
+        response = self.client.get(url_for('update', game_id=1), follow_redirects=True)
         self.assertEqual(response.status_code, 200)
     
     def test_add_rating_get(self):
@@ -87,21 +87,41 @@ class TestRead(TestBase):
         response = self.client.get(url_for('home'))
         self.assertIn(b'Monopoly', response.data)
 
-class TestCreate(TestBase):
+class TestAddGame(TestBase):
     def test_create_games(self):
         response = self.client.post(url_for('add_game'),
-            data=dict(game_name='test game',),
+            data=dict(game_name='test game',
+                age_rating='12',
+                genre='test genre',
+                description='the original test game',
+            ),
             follow_redirects=True
         )
         self.assertIn(b'test game', response.data)
 
 class TestUpdate(TestBase):
     def test_update_games(self):
-        response = self.client.post(url_for('update'),
-            data=dict(game_name='game updated'),
+        response = self.client.post(url_for('update', game_id=1),
+            data=dict(game_name='test game updated',
+                age_rating='7',
+                genre='updated test genre',
+                description='a newer version of test game',
+                rated=False
+            ),
             follow_redirects=True
         )
-        self.assertIn(b'game updated', response.data)
+        self.assertIn(b'test game updated', response.data)
+        self.assertIn(b'7', response.data)
+        self.assertIn(b'updated test genre', response.data)
+        self.assertIn(b'a newer version of test game',response.data)
+
+class TestAddRating(TestBase):
+    def test_add_rating(self):
+        response = self.client.post(url_for('add_rating'),
+            data=dict(rating=5.0, game_name='Monopoly'),
+            follow_redirects=True
+        )
+        self.assertIn(b'5', response.data)
 
 class TestDelete(TestBase):
     def test_delete_game(self):

@@ -8,7 +8,7 @@ class AddRating(FlaskForm):
     submit = SubmitField('Add Rating')
 
 class AddGame(FlaskForm):
-    game_id= HiddenField()
+    #game_id= HiddenField()
     game_name = StringField('Game name')
     age_rating = SelectField('Rating:',
         choices=[
