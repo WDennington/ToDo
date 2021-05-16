@@ -110,7 +110,7 @@ CRUD implemented on this page: Update, Delete, Read
 When navigating to the /add_game path or clicking the Add Game button shown on all pages the user is given a form to fill out which will add a new game with attributes to the database. (Shown below)
 
 <br/>
-![add game page](https://i.imgur.com/2OBQaXt.png)
+![addgame page](https://i.imgur.com/2OBQaXt.png)
 <br/>
 CRUD implemented on this page: Create
 <br/><br/>
