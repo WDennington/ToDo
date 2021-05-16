@@ -65,7 +65,21 @@ I decided to use Trello over other kanban style boards due to not knowing how ot
 My initial Trello board above shows my process when I had initially began the project. <br/>
 My Trello board below shows how I used it by the end, adding MoSCoW functionality and prioritising user stories.
 <br/><br/>
-![Initial Trello](https://i.imgur.com/GDfmnyo.png)
+![Final Trello](https://i.imgur.com/GDfmnyo.png)
 <br/>
 
 The full board can be found at https://trello.com/b/Ysrm49wD/games.
+
+### Entity Relationship Diagram
+
+Below is my entity relationship diagram
+<br/>
+![ERD image](https://i.imgur.com/BsIguIF.png)
+<br/>
+This shows how my tables were linked in my database. I use the game id from the Games table as the foreign key for the Game Ratings table. This allows multiple ratings to be associated with a single game.
+<br/>
+If I were to have more time and knowledge, I would have implemented another table (show below) to add users and the ability to have a user login. This would allow other people to see who thought a game was worthy of what rating. It would be linked to the Game Ratings table using the rating id as the foreign key to form a many to many relationship through the use of two one to many relationships.
+<br/>
+![ERD Users](https://i.imgur.com/5ypPL41.png)
+<br/>
+
