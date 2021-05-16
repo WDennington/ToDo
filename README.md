@@ -87,13 +87,48 @@ If I were to have more time and knowledge, I would have implemented another tabl
 <br/>
 Continuous integration is used in my project to automate builds in case of servers dropping while focusing on automatic testing. In my project Jenkins will pull code from my GitHub repository then build it. Next Jenkins will run unit testing and produce a report availible to the developer.
 <br/>
+#### Jenkins Script
+The build script can be broken into five stages, shown below.  
+<br/>
 
+**1.** Setup variables
+```
+export DATABASE_URI
+```
+The URI is saved as secret text in Jenkins to keep it secure.
+<br/>
+The Secret Key is set to be a random string in the __init__.py file therefore does not need to be setup or saved to Jenkins.
+
+
+**2.** Installation of the virtual environment
+
+```
+sudo apt update
+sudo apt install python3 python3-pip python3-venv -y
+
+python3 -m venv venv
+source venv/bin/activate
+
+pip3 install -r requirements.txt
+```
+<br/>
+
+**3.** Unit and integration testing
+
+```
+python3 -m pytest tests --cov=application --cov-report term-missing
+```
+<br/>
+
+
+
+As outlined in the pipeline diagram, the testing coverage report is then available on the Jenkins console.
 ## Development
 ### Unit Testing
 Unit testing is used here to check the app gives the correct response to a given input. The tests are designed to assert each function returns an expected response. These tests are run automatically after every Git push using Jenkins. Jenkins prints out whether or not the tests were successsful and also gives a coverage report noting the percentage of the application that was tested.  
 <br/>
 
-![Coverage Report](https://i.imgur.com/8cRmCgu.png)
+![Coverage Report](https://i.imgur.com/TarytNU.png)
 <br/>
 
 ### Front-End
