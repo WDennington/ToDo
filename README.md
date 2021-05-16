@@ -48,7 +48,9 @@ An outline of how CRUD will be implemented can be seen below.
 ### Risk Assessment
 My initial risk assessment can be seen below
 <br/><br/>
-![Imgur](https://i.imgur.com/2Q1wUFB.png)
+![Initial](https://i.imgur.com/2Q1wUFB.png)
 <br/>
-The highlighted rows in the table were added at a later date after new risks became clear.  
-The full risk assessment can be found [here](https://docs.google.com/spreadsheets/d/1rmqhFgW-Qwi52n_LbR-T77hh7dNrqLTI9gA4RVbdwOs/edit?usp=sharing).
+My final risk assessment can be seen below 
+<br/><br/>
+![Final](https://i.imgur.com/5S7ejly.png)
+The full risk assessment can be found [here](https://qalearning-my.sharepoint.com/:x:/r/personal/wdennington_qa_com/Documents/Risk%20Assessment.xlsx?d=w1fdd9bdb8c6f4a5ebba7f4844972412f&csf=1&web=1&e=COMFYC).
