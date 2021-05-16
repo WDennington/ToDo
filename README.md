@@ -112,6 +112,7 @@ When navigating to the /add_game path or clicking the Add Game button shown on a
 <br/>
 ![game page](https://i.imgur.com/2OBQaXt.png)
 <br/>
+
 CRUD implemented on this page: Create
 <br/><br/>
 
@@ -121,6 +122,7 @@ When navigating to the /add_rating path or clicking the Add Game button shown on
 <br/>
 ![rating page](https://i.imgur.com/aF5B1mN.png)
 <br/>
+
 CRUD implemented on this page: Create
 <br/><br/>
 
