@@ -54,3 +54,18 @@ My final risk assessment can be seen below
 <br/><br/>
 ![Final](https://i.imgur.com/5S7ejly.png)
 The full risk assessment can be found [here](https://qalearning-my.sharepoint.com/:x:/r/personal/wdennington_qa_com/Documents/Risk%20Assessment.xlsx?d=w1fdd9bdb8c6f4a5ebba7f4844972412f&csf=1&web=1&e=COMFYC).
+
+### Trello Board
+The progress of my project was documented using a Trello board.
+<br/><br/>
+I decided to use Trello over other kanban style boards due to not knowing how other boards work, therefore spending less time learning how to use other boards. Which allowed for more development time on the app itself.
+<br/><br/>
+![Initial Trello](https://i.imgur.com/y73TcmS.png)
+<br/>
+My initial Trello board above shows my process when I had initially began the project. <br/>
+My Trello board below shows how I used it by the end, adding MoSCoW functionality and prioritising user stories.
+<br/><br/>
+![Initial Trello](https://i.imgur.com/GDfmnyo.png)
+<br/>
+
+The full board can be found at https://trello.com/b/Ysrm49wD/games.
