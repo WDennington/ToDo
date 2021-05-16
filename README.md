@@ -96,3 +96,42 @@ Unit testing is used here to check the app gives the correct response to a given
 ![Coverage Report](https://i.imgur.com/8cRmCgu.png)
 <br/>
 
+### Front-End
+#### Home Page
+When navigating to the page with no specified path, the user is given a list of games currently in the database, sorted by rated and unrated. They are also given a navigation bar (which is part of the layout therefore shown on all pages) Allowing the user to Add a Game, Add a Rating or to return home. (Shown below)
+<br/>
+![home page](https://i.imgur.com/19aWaNK.png)
+<br/>
+
+CRUD implemented on this page: Update, Delete, Read
+<br/><br/>
+
+#### Add Game Page
+When navigating to the /add_game path or clicking the Add Game button shown on all pages the user is given a form to fill out which will add a new game with attributes to the database. (Shown below)
+
+<br/>
+![add game page](https://i.imgur.com/2OBQaXt.png)
+<br/>
+CRUD implemented on this page: Create
+<br/><br/>
+
+#### Add Rating Page
+When navigating to the /add_rating path or clicking the Add Game button shown on all pages the user is given a form to fill out which will add a new rating to a game currently in the database. (Shown below)
+
+<br/>
+![add rating page](https://i.imgur.com/aF5B1mN.png)
+<br/>
+CRUD implemented on this page: Create
+<br/><br/>
+
+## Footer
+### Future Improvements
+* As mentioned above, a future version would add user login functionality so only the creator of a rating can remove it to stop biased ratings forming.
+
+
+### Author
+William Dennington
+
+### Acknowledgements
+* [Harry Volker](https://github.com/htr-volker)
+* [Oliver Nichols](https://github.com/OliverNichols) 
