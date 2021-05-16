@@ -144,9 +144,7 @@ CRUD implemented on this page: Update, Delete, Read
 #### Add Game Page
 When navigating to the /add_game path or clicking the Add Game button shown on all pages the user is given a form to fill out which will add a new game with attributes to the database. (Shown below)
 
-<br/>
-![game page](https://i.imgur.com/2OBQaXt.png)
-<br/>
+<br/>![game page](https://i.imgur.com/2OBQaXt.png)<br/>
 
 CRUD implemented on this page: Create
 <br/><br/>
@@ -154,9 +152,7 @@ CRUD implemented on this page: Create
 #### Add Rating Page
 When navigating to the /add_rating path or clicking the Add Game button shown on all pages the user is given a form to fill out which will add a new rating to a game currently in the database. (Shown below)
 
-<br/>
-![rating page](https://i.imgur.com/aF5B1mN.png)
-<br/>
+<br/>![rating page](https://i.imgur.com/aF5B1mN.png)<br/>
 
 
 CRUD implemented on this page: Create
