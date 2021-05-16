@@ -123,6 +123,7 @@ When navigating to the /add_rating path or clicking the Add Game button shown on
 ![rating page](https://i.imgur.com/aF5B1mN.png)
 <br/>
 
+
 CRUD implemented on this page: Create
 <br/><br/>
 
