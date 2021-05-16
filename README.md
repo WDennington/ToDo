@@ -113,7 +113,7 @@ pip3 install -r requirements.txt
 ```
 <br/>
 
-**3.** Unit and integration testing
+**3.** Unit 
 
 ```
 python3 -m pytest tests --cov=application --cov-report term-missing
