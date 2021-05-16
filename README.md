@@ -8,7 +8,6 @@
   * [Risk Assessment](#risk-assessment)
   * [Trello Board](#trello-board)
   * [Entity Relationship Diagram](#entity-relationship-diagram)
-  * [Test Analysis](#analysis-of-testing)
   * [Continuous Integration](#continuous-integration)
 * [Development](#development)
   * [Unit Testing](#unit-testing)
@@ -81,5 +80,19 @@ This shows how my tables were linked in my database. I use the game id from the 
 If I were to have more time and knowledge, I would have implemented another table (show below) to add users and the ability to have a user login. This would allow other people to see who thought a game was worthy of what rating. It would be linked to the Game Ratings table using the rating id as the foreign key to form a many to many relationship through the use of two one to many relationships.
 <br/>
 ![ERD Users](https://i.imgur.com/5ypPL41.png)
+<br/>
+
+### Continuous Integration
+![ci pipeline diagram](https://i.imgur.com/ULIsANn.png)
+<br/>
+Continuous integration is used in my project to automate builds in case of servers dropping while focusing on automatic testing. In my project Jenkins will pull code from my GitHub repository then build it. Next Jenkins will run unit testing and produce a report availible to the developer.
+<br/>
+
+## Development
+### Unit Testing
+Unit testing is used here to check the app gives the correct response to a given input. The tests are designed to assert each function returns an expected response. These tests are run automatically after every Git push using Jenkins. Jenkins prints out whether or not the tests were successsful and also gives a coverage report noting the percentage of the application that was tested.  
+<br/>
+
+![Coverage Report](https://i.imgur.com/8cRmCgu.png)
 <br/>
 
