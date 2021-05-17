@@ -33,6 +33,7 @@ An outline of how CRUD will be implemented can be seen below.
   * Description
   * Age rating (choice from a drop down box)
   * Genre
+  * Rating
 
 **Read**:
 * See which games are in the database
