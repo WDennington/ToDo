@@ -18,9 +18,9 @@
 ## Introduction
 
 ### Objective
-The objective provided for this project is as follows:
-> To create a CRUD application using Flask, have a working relational database,  test the application and hopefully automate the process. All of this requires clear documentation.
-> 
+The objective  for this project is as follows:
+To create a CRUD application using Flask, have a working relational database,  test the application and hopefully automate the process. All of this requires clear documentation.
+ 
 
 ### Proposal
 I have chosen to make an app that allows the user to add a game to the database, update the information about the game, add a rating to the game out of 10 and finally delete the game from the database.
