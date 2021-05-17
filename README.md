@@ -114,7 +114,7 @@ pip3 install -r requirements.txt
 ```
 <br/>
 
-**3.** Unit 
+**3.** Unit test coverage with report 
 
 ```
 python3 -m pytest tests --cov=application --cov-report term-missing
@@ -162,7 +162,8 @@ CRUD implemented on this page: Create
 ## Footer
 ### Future Improvements
 * As mentioned above, a future version would add user login functionality so only the creator of a rating can remove it to stop biased ratings forming.
-* Better testing, although the tests show 100% coverage this does not fully test the app
+* Better testing, although the tests show 100% coverage this does not fully test the app. 
+* Adding integrated testing to the Jenkins builds.
 * Add an average rating for each game
 
 
