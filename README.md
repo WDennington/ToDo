@@ -68,7 +68,7 @@ My Trello board below shows how I used it by the end, adding MoSCoW functionalit
 ![Final Trello](https://i.imgur.com/GDfmnyo.png)
 <br/>
 
-The full board can be found at [here](https://trello.com/b/Ysrm49wD/games).
+The full board can be found [here](https://trello.com/b/Ysrm49wD/games).
 
 ### Entity Relationship Diagram
 
