@@ -168,7 +168,7 @@ CRUD implemented on this page: Create
 
 
 ### Author
-William Dennington
+William Dennington 
 
 ### Acknowledgements
 * [Harry Volker](https://github.com/htr-volker)
